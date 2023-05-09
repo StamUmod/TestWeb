@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(function () {
+  console.log("NMSL");
+  console.log("POST==>");
+  CallPostAPI();
+  console.log("PUT==>");
+  CallPutApi();
+  console.log("POST==>");
+  CallPostAPI();
+});
+
+function CallPostAPI(){
+  var data  = {
+    "username": "string",
+    "password": "string"};
+
+  var url = "https://localhost:7109/api/Account";
+  //console.log(url); //for debug
+  $.ajax({
+    url: url,
+    type: "post",
+    contentType : 'application/json; charset=utf-8', // 要送到server的資料型態
+    data : JSON.stringify(data),
+    //Type: Function(Anything data, String textStatus, jqXHR jqXHR)
+    success: function(data, textStatus, jqXHR) {
+      console.log(JSON.stringify(data));
+    },
+    //Type: Function(jqXHR jqXHR, String textStatus, String errorThrown)
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR.status);  //HTTP CODE
+      console.log(JSON.stringify(jqXHR));
+    }
+  });
+}
+function CallPutApi(){
+  var data  = {
+    "id": 0,
+            "username": "string",
+            "password": "string",
+            "nickname": "NMSL"
+  };
+
+  var url = "https://localhost:7109/api/Account/0";
+  //console.log(url); //for debug
+  $.ajax({
+    url: url,
+    type: "put",
+    contentType : 'application/json; charset=utf-8', // 要送到server的資料型態
+    data : JSON.stringify(data),
+    //Type: Function(Anything data, String textStatus, jqXHR jqXHR)
+    success: function(data, textStatus, jqXHR) {
+      console.log(JSON.stringify(data));
+    },
+    //Type: Function(jqXHR jqXHR, String textStatus, String errorThrown)
+    error: function(jqXHR, textStatus, errorThrown) {
+      console.log(jqXHR.status);  //HTTP CODE
+      console.log(JSON.stringify(jqXHR));
+    }
+  });
+}
+</script>
+
+</body>
+</html>
