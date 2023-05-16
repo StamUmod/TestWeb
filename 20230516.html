@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script>
+  $(function () {
+    console.log("aaaa");
+    GATAPI();
+  });
+
+  function GATAPI() {
+    var url = "https://datacenter.taichung.gov.tw/Swagger/OpenData/44ff471a-8bda-429d-b5ba-29eace7b05ed?limit=10";
+    console.log(url); //for debug
+    $.ajax({
+      url: url,
+      dataType: "json",
+      type: "get",
+      //data:data,
+      //Type: Function(Anything data, String textStatus, jqXHR jqXHR)
+      success: function (data, textStatus, jqXHR) {
+        console.log(JSON.stringify(data));
+      },
+      //Type: Function(jqXHR jqXHR, String textStatus, String errorThrown)
+      error: function (jqXHR, textStatus, errorThrown) {
+
+      }
+    });
+  }
+
+</script>
+
+
+</body>
+</html>
