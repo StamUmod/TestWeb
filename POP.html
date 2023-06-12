@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+  <style>
+    div{
+      width: 100%;
+      height: 900px;
+    }
+    .lol-l{
+        background-image: url("IMG/lol.png");
+        background-repeat: no-repeat;
+    }
+
+    .lol-lo{
+        background-image: url("IMG/ooo.png");
+        background-repeat: no-repeat;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="lol-l" id="lol" height="auto" width="100%"></div>
+<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+<script>
+  $(function () {
+
+      $("#lol").on("mouseup",function (){
+          $("#lol").removeClass("lol-lo");
+          $("#lol").addClass("lol-l");
+      })
+      $("#lol").on("mousedown",function (){
+          $("#lol").removeClass("lol-l");
+          $("#lol").addClass("lol-lo");
+      })
+  });
+
+</script>
+
+</body>
+</html>
